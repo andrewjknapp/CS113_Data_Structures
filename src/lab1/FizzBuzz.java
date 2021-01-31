@@ -6,6 +6,11 @@ public class FizzBuzz {
     public static void printFizzBuzz(int start, int end) {
         boolean fizz, buzz;
 
+        if (start >= end) {
+            System.err.println("'start' value must be less than 'end'");
+            return;
+        }
+
         for (int num = start; num <= end; num++) {
             System.out.print(num + " ");
 
