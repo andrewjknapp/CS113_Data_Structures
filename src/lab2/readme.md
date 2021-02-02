@@ -7,7 +7,7 @@
   - My solution uses the fact that a power of two, when expressed in binary, starts with a 1 and is followed by all 0's. 
   - First convert num to binary
   - If all digits are zero after the first position then the num is a power of two
-- How To Run
+- #### How To Run
   - Run PowerCheckTest.java
 - #### Method Signature
   - public static boolean isPowerOfTwo(int num)
