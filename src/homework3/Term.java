@@ -82,12 +82,7 @@ public class Term implements Comparable {
 
         Term other = (Term) o;
 
-        int expComp = this.mExponent - other.mExponent;
-        if (expComp != 0) {
-            return expComp;
-        }
-
-        return this.mCoefficient - other.mCoefficient;
+        return this.mExponent - other.mExponent;
     }
 
     @Override
