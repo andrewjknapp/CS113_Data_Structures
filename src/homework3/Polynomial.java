@@ -11,7 +11,11 @@ public class Polynomial {
     }
 
     public Polynomial(Polynomial other) {
-        mFullPolynomial.addAll(other.mFullPolynomial);
+        mFullPolynomial = new ArrayList<>();
+        for (Term t : other.mFullPolynomial) {
+            mFullPolynomial.add(new Term(t.getCoefficient(), t.getExponent()));
+        }
+
     }
 
     public int getNumTerms() {
