@@ -24,14 +24,20 @@ public class Polynomial {
 
     // If term with exponent exists add to term instead of list
     public void addTerm(Term term) {
+        int index = 0;
         for (Term t : mFullPolynomial) {
             if (term.getExponent() == t.getExponent()) {
+                if (t.getCoefficient() + term.getCoefficient() == 0) {
+                    mFullPolynomial.remove(index);
+                    return;
+                }
                 t.setCoefficient(t.getCoefficient() + term.getCoefficient());
                 return;
             }
+            index++;
         }
         mFullPolynomial.add(term);
-        Collections.sort(mFullPolynomial);
+        Collections.sort(mFullPolynomial, Collections.reverseOrder());
     }
 
     public Term getTerm(int index) {
@@ -42,11 +48,28 @@ public class Polynomial {
         mFullPolynomial.clear();
     }
 
-    public String add(Polynomial other) {
-        return "";
+    public void add(Polynomial other) {
+        for (Term t : other.mFullPolynomial) {
+            this.addTerm(t);
+        }
+
     }
 
+    @Override
+    public String toString() {
+        if (mFullPolynomial.size() == 0) {
+            return "0";
+        }
+        String output = "";
+        for (Term t : mFullPolynomial) {
+            output += t.toString();
+        }
 
+        if (output.charAt(0) == '+') {
+            output = output.substring(1);
+        }
+        return output;
+    }
 
 
 }

@@ -115,10 +115,11 @@ public class Term implements Comparable {
         if (mCoefficient > 0) {
             output += "+";
         } else if (mCoefficient == -1) {
-            output += "-";
+            output += "1";
         }
 
-        if (mCoefficient != 1 && mCoefficient != -1) {
+        if (mCoefficient != 1 && mCoefficient != -1 ||
+           mCoefficient == 1 && mExponent == 0) {
             output += Integer.toString(mCoefficient);
         }
 
