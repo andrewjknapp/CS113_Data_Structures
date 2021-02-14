@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class PolynomialAdder {
+public class Driver {
     public static void main(String[] args) {
 
         Scanner keyboard = new Scanner(System.in);

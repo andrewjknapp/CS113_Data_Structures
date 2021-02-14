@@ -100,11 +100,6 @@ public class Term implements Comparable {
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(mCoefficient, mExponent);
-    }
-
-    @Override
     public String toString() {
         String output = "";
 
