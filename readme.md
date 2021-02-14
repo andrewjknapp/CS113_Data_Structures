@@ -11,3 +11,4 @@ ___
 
 ### Homeworks
 ___
+1) Polynomial ArrayList - [Homework 3](https://github.com/andrewjknapp/CS113_Data_Structures/tree/main/src/homework3)
