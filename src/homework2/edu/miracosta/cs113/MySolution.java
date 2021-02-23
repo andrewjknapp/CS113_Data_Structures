@@ -102,11 +102,11 @@ public class MySolution {
 
             lIndex++;
             if (lIndex >= locations.size()) {
-                lIndex = 1;
+                lIndex = 0;
                 mIndex++;
             }
             if (mIndex >= murderers.size()) {
-                mIndex = 1;
+                mIndex = 0;
                 wIndex++;
             }
 
