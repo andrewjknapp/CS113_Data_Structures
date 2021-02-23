@@ -12,11 +12,17 @@ The Random Clue algorithm generates a random clue, 1 of 6 weapons, 1 of 6 murder
 Total there are 360 combinations. With the random approach there is no guarantee that the correct answer will
 ever be reached. The best case scenario is it is guessed on the first try, worst case scenario the program
 loops forever never randomly guessing the correct theory.
+The time to get to the guess is not dependent on the ones selected
 The main benefit to the random guess method is that it is very easy to implement and can work if time or resource
 constraints are not critical. However when trying to solve a murder in under 20 turns these constraints are very
 much of the highest importance.
+-----------------------------------------------------------------------------------------------------------------
+Sliding Pointer Clue
+Trial  Total checks
+1       7
+2       10
+3       11
+4       6
+5       7
 
-My Solution
-Pros
-
-Cons
+The Sliding Pointer Clue algorithm makes
