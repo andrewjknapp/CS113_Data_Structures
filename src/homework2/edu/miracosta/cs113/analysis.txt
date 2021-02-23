@@ -25,4 +25,9 @@ Trial  Total checks
 4       6
 5       7
 
-The Sliding Pointer Clue algorithm makes
+The Sliding Pointer Clue algorithm starts at 1 for each category and tests the theory 1 1 1. If incorrect the
+incorrect category is incremented and the theory is tested again until the correct answer is reached.
+Every test clocked in at under 20 trials.
+This does not change based on trial performed. (Trial 1 will always take 1 comparison as 1 1 1 is the answer)
+This strategy cuts down on the number of comparisons as compared to the RandomClue and has a definite maximum number
+of comparisons which is around 22.
