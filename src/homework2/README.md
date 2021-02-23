@@ -18,6 +18,9 @@ and the comparison is made again
 
 - ##### How to Run
   - Run EliminationClue.java
+
+- ##### Analysis
+- [analysis.txt](https://github.com/andrewjknapp/CS113_Data_Structures/blob/main/src/homework2/edu/miracosta/cs113/analysis.txt)
   
 ---
 [Return to Class Repo](https://github.com/andrewjknapp/CS113_Data_Structures)
