@@ -25,19 +25,16 @@ public class SlidingPointerClue {
      * PROMPT "Which theory to test? (1, 2, 3[random]): "
      * READ answerSet
      * INSTANTIATE jack = new AssistantJack(answerSet)
-     *             WEAPON_MAX from TheoryItem
-     *             MURDERER_MAX from TheoryItem
-     *             ROOM_MAX from TheoryItem
-     *             wIndex = 0
-     *             mIndex = 0
-     *             lIndex = 0
+     *             weapon = 0
+     *             person = 0
+     *             location = 0
      * DO
      *      solution = jack.checkAnswer(weapon, location, murder)
      *      IF solution == 0 break
      *
-     *      ELSE IF solution == 1 increment weapon index
-     *      ELSE IF solution == 2 increment location index
-     *      ELSE increment murderer index
+     *      ELSE IF solution == 1 increment weapon
+     *      ELSE IF solution == 2 increment location
+     *      ELSE increment murderer
      *
      * WHILE weapon <= WEAPON_MAX
      *

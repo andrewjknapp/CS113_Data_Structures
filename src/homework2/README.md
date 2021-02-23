@@ -9,11 +9,10 @@ There are 6 possible murderers, 6 possible weapons, and 10 possible locations, w
 We must discover the murderer within 20 comparisons.
 
 - ##### Implementation
-All possible weapons, people, and locations are stored in ArrayLists
 The algorithm used starts by guessing the first weapon, location, and person.
 1 1 1
 If the comparison is incorrect it is told one of the incorrect selections
-The pointer to the index of the array with the incorrect selection is incremented
+The variable of the incorrect selection is incremented
 and the comparison is made again
 
 
