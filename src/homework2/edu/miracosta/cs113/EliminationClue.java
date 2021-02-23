@@ -1,28 +1,24 @@
 package homework2.edu.miracosta.cs113;
 
 /**
- * MySolution.java : Your job is to ask your AssistantJack and get the correct
- * answer in <= 20 tries.  MySolution is ONE solution to the problem,
- * where a set of random numbers is generated every attempt until all three
- * random numbers match the solution from the AssistantJack object.
+ * EliminationClue.java : Your job is to ask your AssistantJack and get the correct
+ * answer in <= 20 tries. EliminationClue starts its theory with the first person,
+ * location and weapon. The feedback from checkAnswer tells us one of the categories
+ * that was incorrect. That value is removed from the possible answers. This elimination
+ * continues until the correct answer is found.
  *
- * This is a sample solution, a driver using random number implementation.
- * You can use this file as a guide to create your own SEPARATE driver for
- * your implementation that can solve it in <= 20 times consistently.
- *
- * @author Nery Chapeton-Lamas (material from Kevin Lewis)
+ * @author Andrew Knapp
  * @version 1.0
  *
  */
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 import homework2.model.Theory;
 import homework2.model.AssistantJack;
 import homework2.model.TheoryItem;
 
-public class MySolution {
+public class EliminationClue {
 
     /*
      * ALGORITHM:
@@ -33,19 +29,17 @@ public class MySolution {
      *             WEAPON_MAX from TheoryItem
      *             MURDERER_MAX from TheoryItem
      *             ROOM_MAX from TheoryItem
-     *             weapon = 1
-     *             murderer = 1
-     *             room = 1
+     *             wIndex = 0
+     *             mIndex = 0
+     *             lIndex = 0
      * DO
      *      solution = jack.checkAnswer(weapon, location, murder)
      *      IF solution == 0 break
-     *      room++
-     *      IF (room > ROOM_MAX)
-     *          room = 1
-     *          murderer++
-     *      IF(murderer > MURDERER_MAX)
-     *          murderer = 1
-     *          weapon++
+     *
+     *      ELSE IF solution == 1 remove that weapon index
+     *      ELSE IF solution == 2 remove that location index
+     *      ELSE remove that murderer index
+     *
      * WHILE weapon <= WEAPON_MAX
      *
      * OUTPUT "Total checks = " + jack.getTimesAsked()
@@ -99,7 +93,9 @@ public class MySolution {
         do {
             solution = jack.checkAnswer(weapons.get(wIndex), locations.get(lIndex), murderers.get(mIndex));
 
-            if (solution == 0) break;
+            if (solution == 0) {
+                break;
+            }
             else if (solution == 1) {
                 weapons.remove(wIndex);
             } else if (solution == 2) {
@@ -108,7 +104,7 @@ public class MySolution {
                 murderers.remove(mIndex);
             }
 
-        } while (wIndex < weapons.size());
+        } while (true);
 
         answer = new Theory(weapons.get(wIndex), locations.get(lIndex), murderers.get(mIndex));
 
