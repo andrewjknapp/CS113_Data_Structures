@@ -57,29 +57,10 @@ public class SlidingPointerClue {
     public static void main(String[] args) {
         // DECLARATION + INITIALIZATION
         int answerSet, solution,
-            mIndex = 0, wIndex = 0, lIndex = 0;
+            person = 1, weapon = 0, location = 0;
         Theory answer;
         AssistantJack jack;
         Scanner keyboard = new Scanner(System.in);
-
-        int WEAPON_MAX = TheoryItem.TOTAL_WEAPONS,
-                MURDERER_MAX = TheoryItem.TOTAL_MURDERS,
-                LOCATION_MAX = TheoryItem.TOTAL_LOCATIONS;
-
-        ArrayList<Integer> weapons = new ArrayList<>(),
-                           murderers = new ArrayList<>(),
-                           locations = new ArrayList<>();
-
-        for (int i = 0; i < LOCATION_MAX; i++) {
-            if (i < WEAPON_MAX) {
-                weapons.add(i+1);
-            }
-            if (i < MURDERER_MAX) {
-                murderers.add(i+1);
-            }
-
-            locations.add(i+1);
-        }
 
         // INPUT
         System.out.print("Which theory would like you like to test? (1, 2, 3[random]): ");
@@ -90,22 +71,22 @@ public class SlidingPointerClue {
         jack = new AssistantJack(answerSet);
 
         do {
-            solution = jack.checkAnswer(weapons.get(wIndex), locations.get(lIndex), murderers.get(mIndex));
+            solution = jack.checkAnswer(weapon, location, person);
 
             if (solution == 0) {
                 break;
             }
             else if (solution == 1) {
-                wIndex++;
+                weapon++;
             } else if (solution == 2) {
-                lIndex++;
+                location++;
             } else {
-                mIndex++;
+                person++;
             }
 
         } while (true);
-        System.out.println(jack.checkAnswer(weapons.get(wIndex), locations.get(lIndex), murderers.get(mIndex)));
-        answer = new Theory(weapons.get(wIndex), locations.get(lIndex), murderers.get(mIndex));
+
+        answer = new Theory(weapon, location, person);
 
         // OUTPUT
         System.out.println("Total Checks = " + jack.getTimesAsked() + ", Solution " + answer);
