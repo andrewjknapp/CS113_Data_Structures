@@ -1,11 +1,10 @@
 package homework2.edu.miracosta.cs113;
 
 /**
- * EliminationClue.java : Your job is to ask your AssistantJack and get the correct
- * answer in <= 20 tries. EliminationClue starts its theory with the first person,
+ * SlidingPointerClue.java : Your job is to ask your AssistantJack and get the correct
+ * answer in <= 20 tries. SlidingPointerClue starts its theory with the first person,
  * location and weapon. The feedback from checkAnswer tells us one of the categories
- * that was incorrect. That value is removed from the possible answers. This elimination
- * continues until the correct answer is found.
+ * that was incorrect. That index is incremented and the comparison is made again
  *
  * @author Andrew Knapp
  * @version 1.0
@@ -18,7 +17,7 @@ import homework2.model.Theory;
 import homework2.model.AssistantJack;
 import homework2.model.TheoryItem;
 
-public class EliminationClue {
+public class SlidingPointerClue {
 
     /*
      * ALGORITHM:
@@ -36,9 +35,9 @@ public class EliminationClue {
      *      solution = jack.checkAnswer(weapon, location, murder)
      *      IF solution == 0 break
      *
-     *      ELSE IF solution == 1 remove that weapon index
-     *      ELSE IF solution == 2 remove that location index
-     *      ELSE remove that murderer index
+     *      ELSE IF solution == 1 increment weapon index
+     *      ELSE IF solution == 2 increment location index
+     *      ELSE increment murderer index
      *
      * WHILE weapon <= WEAPON_MAX
      *
@@ -97,15 +96,15 @@ public class EliminationClue {
                 break;
             }
             else if (solution == 1) {
-                weapons.remove(wIndex);
+                wIndex++;
             } else if (solution == 2) {
-                locations.remove(lIndex);
+                lIndex++;
             } else {
-                murderers.remove(mIndex);
+                mIndex++;
             }
 
         } while (true);
-
+        System.out.println(jack.checkAnswer(weapons.get(wIndex), locations.get(lIndex), murderers.get(mIndex)));
         answer = new Theory(weapons.get(wIndex), locations.get(lIndex), murderers.get(mIndex));
 
         // OUTPUT
