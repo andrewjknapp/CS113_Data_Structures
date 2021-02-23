@@ -41,7 +41,8 @@ public class AssistantJack {
         if (answerSet == 1) {
             this.correctTheory = new Theory(1, 1, 1);
         } else if (answerSet == 2) {
-            this.correctTheory = new Theory(6, 10, 6);
+            //this.correctTheory = new Theory(6, 10, 6);
+            this.correctTheory = new Theory(2, 1, 5);
         } else {
             Random random = new Random();
             int weapon = random.nextInt(6) + 1;

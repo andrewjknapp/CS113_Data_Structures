@@ -98,16 +98,14 @@ public class MySolution {
 
         do {
             solution = jack.checkAnswer(weapons.get(wIndex), locations.get(lIndex), murderers.get(mIndex));
-            if (solution == 0) break;
 
-            lIndex++;
-            if (lIndex >= locations.size()) {
-                lIndex = 0;
-                mIndex++;
-            }
-            if (mIndex >= murderers.size()) {
-                mIndex = 0;
-                wIndex++;
+            if (solution == 0) break;
+            else if (solution == 1) {
+                weapons.remove(wIndex);
+            } else if (solution == 2) {
+                locations.remove(lIndex);
+            } else {
+                murderers.remove(mIndex);
             }
 
         } while (wIndex < weapons.size());
