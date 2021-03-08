@@ -1,4 +1,4 @@
-package edu.miracosta.cs113.Stack;
+package stack;
 import java.util.EmptyStackException;
 
 /** Implementation of the interface StackInt<E> using

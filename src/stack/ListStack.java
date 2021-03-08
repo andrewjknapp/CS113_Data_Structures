@@ -1,4 +1,4 @@
-package edu.miracosta.cs113.Stack;
+package stack;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.EmptyStackException;

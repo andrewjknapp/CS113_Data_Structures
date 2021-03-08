@@ -1,4 +1,4 @@
-package edu.miracosta.cs113.Stack;
+package stack;
 /** A Stack is a data structure in which objects are inserted into
  *  and removed from the same end (i.e., Last-In, First-Out).
  */
