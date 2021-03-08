@@ -65,4 +65,16 @@ public class Directory {
 			}else
 				return null;
 		}
+
+	/** Get a DirectoryEntry
+	@param index The index of the DirectoryEntry to get
+	@return The DirectoryEntry requested or null if it doesn't exist
+	*/
+		public DirectoryEntry getDirectoryEntry(int index) {
+			if (index >= this.theDirectory.size()) {
+				return null;
+			} else {
+				return this.theDirectory.get(index);
+			}
+		}
 }

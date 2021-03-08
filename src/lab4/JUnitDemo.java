@@ -21,9 +21,9 @@ class JUnitDemo {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		String s = directory.addOrChangeEntry("AB", "000-000-0000");
-		s = directory.addOrChangeEntry("BB", "000-000-0001");
-		s = directory.addOrChangeEntry("CB", "000-000-0001");
+		String s = directory.addOrChangeEntry("Jonathan", "123-432-4325");
+		s = directory.addOrChangeEntry("Billiam", "679-143-1432");
+		s = directory.addOrChangeEntry("Caleb", "586-345-2453");
 	}
 
 	@AfterEach
@@ -32,10 +32,16 @@ class JUnitDemo {
 
 	@Test
 	void testAddOrChangeEntry() {
-		assertEquals(directory.addOrChangeEntry("DA",  "000-000-0004"), null); // Checking Add
-		assertEquals(directory.addOrChangeEntry("AB",  "000-000-0004"), "000-000-0000"); // Checking Change
-		
-	//	fail("Not yet implemented");
+		assertNull(directory.addOrChangeEntry("Daniel", "342-435-7534")); // Checking Add
+		assertEquals(directory.addOrChangeEntry("Jonathan",  "543-435-5434"), "123-432-4325"); // Checking Change
+	}
+
+	@Test
+	void testRemoveEntry() {
+		assertNull(directory.removeEntry("Jamison")); // Test nonexistent entry
+		DirectoryEntry personToBeRemoved = directory.removeEntry("Daniel");
+		assertEquals(personToBeRemoved.getName(), "Daniel"); // Test removing directoryEntry
+		assertEquals(personToBeRemoved.getNumber(), "342-435-7534");
 	}
 
 }
