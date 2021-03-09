@@ -10,10 +10,10 @@ public class DoubleLinkedList<E> extends AbstractSequentialList<E>
   public void add(int index, E obj)
   { // Fill Here 
    }
-  public void addFirst(E obj) { // Fill Here 
+  public void addFirst(E obj) { // TODO Fill Here
 	  
   }
-  public void addLast(E obj) { // Fill Here
+  public void addLast(E obj) { // TODO Fill Here
   }
 
   public E get(int index) 
@@ -23,7 +23,7 @@ public class DoubleLinkedList<E> extends AbstractSequentialList<E>
   public E getFirst() { return head.data;  }
   public E getLast() { return tail.data;  }
 
-  public int size() {  return -1;  } // Fill Here
+  public int size() {  return size;  }
 
   public E remove(int index)
   {     E returnValue = null;
@@ -75,11 +75,11 @@ public class DoubleLinkedList<E> extends AbstractSequentialList<E>
     {   nextItem = other.nextItem;
         index = other.index;    }
 
-    public boolean hasNext() {   return true;    } // Fill Here
+    public boolean hasNext() {   return true;    } // TODO Fill Here
     public boolean hasPrevious()
-    {   return false;   } // Fill Here
-    public int previousIndex() {  return 0;    } // Fill Here
-    public int nextIndex() {  return 0;    } // Fill here
+    {   return false;   } // TODO Fill Here
+    public int previousIndex() {  return 0;    } // TODO Fill Here
+    public int nextIndex() {  return 0;    } // TODO Fill here
     public void set(E o)  { }  // not implemented
     public void remove(){}      // not implemented
 
@@ -89,7 +89,7 @@ public class DoubleLinkedList<E> extends AbstractSequentialList<E>
     }
 
     public E previous() 
-    {  return lastItemReturned.data; // Fill Here 
+    {  return lastItemReturned.data; // TODO Fill Here
     }
 
     public void add(E obj) {
