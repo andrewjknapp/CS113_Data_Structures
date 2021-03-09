@@ -11,9 +11,16 @@ public class DoubleLinkedList<E> extends AbstractSequentialList<E>
   { // Fill Here 
    }
   public void addFirst(E obj) { // TODO Fill Here
-	  
+      Node adding = new Node(obj);
+      adding.next = head;
+      head.prev = adding;
+      head = adding;
   }
   public void addLast(E obj) { // TODO Fill Here
+      Node adding = new Node(obj);
+      adding.prev = tail;
+      tail.next = adding;
+      tail = adding;
   }
 
   public E get(int index) 
@@ -75,7 +82,9 @@ public class DoubleLinkedList<E> extends AbstractSequentialList<E>
     {   nextItem = other.nextItem;
         index = other.index;    }
 
-    public boolean hasNext() {   return true;    } // TODO Fill Here
+    public boolean hasNext() {
+        return nextItem != null;
+    }
     public boolean hasPrevious()
     {   return false;   } // TODO Fill Here
     public int previousIndex() {  return 0;    } // TODO Fill Here
