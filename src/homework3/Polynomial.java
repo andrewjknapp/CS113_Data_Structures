@@ -13,7 +13,10 @@ public class Polynomial {
     public Polynomial(Polynomial other) {
         mFullPolynomial = new ArrayList<>();
         for (Term t : other.mFullPolynomial) {
-            mFullPolynomial.add(new Term(t.getCoefficient(), t.getExponent()));
+            Term newTerm = new Term();
+            newTerm.setCoefficient(t.getCoefficient());
+            newTerm.setExponent(t.getExponent());
+            mFullPolynomial.add(newTerm);
         }
 
     }
@@ -25,10 +28,10 @@ public class Polynomial {
     // If term with exponent exists add to term instead of list
     public void addTerm(Term term) {
         int index = 0;
-        for (Term t : mFullPolynomial) {
+        for (Term t : this.mFullPolynomial) {
             if (term.getExponent() == t.getExponent()) {
                 if (t.getCoefficient() + term.getCoefficient() == 0) {
-                    mFullPolynomial.remove(index);
+                    this.mFullPolynomial.remove(index);
                     return;
                 }
                 t.setCoefficient(t.getCoefficient() + term.getCoefficient());
@@ -36,8 +39,8 @@ public class Polynomial {
             }
             index++;
         }
-        mFullPolynomial.add(term);
-        Collections.sort(mFullPolynomial, Collections.reverseOrder());
+        this.mFullPolynomial.add(new Term(term.getCoefficient(), term.getExponent()));
+        Collections.sort(this.mFullPolynomial, Collections.reverseOrder());
     }
 
     public Term getTerm(int index) {

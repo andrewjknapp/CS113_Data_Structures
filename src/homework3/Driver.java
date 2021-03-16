@@ -118,10 +118,11 @@ public class Driver {
                 sum = new Polynomial();
                 sum.add(polynomials[0]);
                 sum.add(polynomials[1]);
+
                 System.out.println("Sum of Polynomial 1 and Polynomial 2");
                 System.out.println("  " + polynomials[0]);
                 System.out.println("+ " + polynomials[1]);
-                System.out.println(sum);
+                System.out.println("  " + sum);
             }
             /* HELP *********************************************/
             else {
