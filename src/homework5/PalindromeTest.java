@@ -42,10 +42,12 @@ public class PalindromeTest {
      */
     private boolean isPalindrome(String s) {
 
+        // Handle Invalid Input
         if (s == null) {
             throw new IllegalArgumentException();
         }
 
+        // Strings of length 0 and 1 are automatically considered pallindromes
         if (s.length() == 0 || s.length() == 1) {
             return true;
         }
@@ -53,6 +55,7 @@ public class PalindromeTest {
         ArrayListStack<String> forward = new ArrayListStack<>();
         ArrayListStack<String> reverse = new ArrayListStack<>();
 
+        // Store all characters from s into forward
         char currentChar;
         for (int i = 0; i < s.length(); i++) {
             currentChar = s.charAt(i);
@@ -62,15 +65,21 @@ public class PalindromeTest {
 
             forward.push(String.valueOf(currentChar).toLowerCase());
         }
+
+        // Transfer the second half of characters from forward into reverse
         int numCharacters = forward.getSize();
         for (int i = 0; i < (numCharacters / 2); i++) {
             reverse.push(forward.pop());
         }
 
+        // If s had an odd number of characters, the middle character does
+        // not matter so we can discard it
         if (numCharacters % 2 != 0) {
             forward.pop();
         }
 
+        // If the two stacks are equal then the original
+        // string was a pallindrome
         return forward.equals(reverse);
     } // End of method isPalindrome
 
