@@ -42,10 +42,36 @@ public class PalindromeTest {
      */
     private boolean isPalindrome(String s) {
 
-        // TODO:
-        // Implement this method body using your ArrayListStack. Be mindful of your algorithm!
-        return false;
+        if (s == null) {
+            throw new IllegalArgumentException();
+        }
 
+        if (s.length() == 0 || s.length() == 1) {
+            return true;
+        }
+
+        ArrayListStack<String> forward = new ArrayListStack<>();
+        ArrayListStack<String> reverse = new ArrayListStack<>();
+
+        char currentChar;
+        for (int i = 0; i < s.length(); i++) {
+            currentChar = s.charAt(i);
+            if (Character.isWhitespace(currentChar)) {
+                continue;
+            }
+
+            forward.push(String.valueOf(currentChar).toLowerCase());
+        }
+        int numCharacters = forward.getSize();
+        for (int i = 0; i < (numCharacters / 2); i++) {
+            reverse.push(forward.pop());
+        }
+
+        if (numCharacters % 2 != 0) {
+            forward.pop();
+        }
+
+        return forward.equals(reverse);
     } // End of method isPalindrome
 
     @Test

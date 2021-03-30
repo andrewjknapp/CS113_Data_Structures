@@ -15,6 +15,10 @@ public class ArrayListStack<E> implements StackInterface<E> {
         top = -1;
     }
 
+    public boolean equals(ArrayListStack other) {
+        return stack.equals(other.stack);
+    }
+
     // Stack Interface Implementation
     public boolean empty() {
         return stack.isEmpty();
@@ -43,4 +47,8 @@ public class ArrayListStack<E> implements StackInterface<E> {
         return stack.get(top);
     }
 
+    // Getters
+    public int getSize() {
+        return top + 1;
+    }
 }
