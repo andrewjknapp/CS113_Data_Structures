@@ -10,11 +10,6 @@ public class Driver {
         Scanner keyboard = new Scanner(System.in);
         String promptStr = "> ";
 
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("Welcome to the Polynomial Adder");
-        System.out.println("Type help for how to use");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.print(promptStr);
         boolean promptAgain = true;
         String input, confirmClear, termInput, polyInput;
         String[] polyTerms;
@@ -28,6 +23,13 @@ public class Driver {
         Polynomial[] polynomials = {poly1, poly2};
         String[] polyNames = {"Polynomial 1", "Polynomial 2"};
         int selectedPoly = 0;
+
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("Welcome to the Polynomial Adder");
+        System.out.println("Type help for how to use");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        displayPolys(promptStr, polynomials, selectedPoly);
+
 
 
         while(promptAgain) {
@@ -44,13 +46,13 @@ public class Driver {
                 } else {
                     selectedPoly = 0;
                 }
-                System.out.println(polyNames[selectedPoly]);
+                System.out.println("Switched to " + polyNames[selectedPoly]);
             }
-            /* LIST ********************************************/
-            else if (input.equals("list")) {
-                System.out.println(polyNames[selectedPoly]);
-                System.out.println(polynomials[selectedPoly]);
-            }
+//            /* LIST ********************************************/
+//            else if (input.equals("list")) {
+//                System.out.println(polyNames[selectedPoly]);
+//                System.out.println(polynomials[selectedPoly]);
+//            }
             /* CLEAR *******************************************/
             else if (input.equals("clear")) {
                 System.out.println("Are you sure you want to delete " + polyNames[selectedPoly] + " y/n");
@@ -128,7 +130,7 @@ public class Driver {
             else {
                 System.out.println("Polynomial Adder aims to make adding polynomials easier");
                 System.out.println("Commands");
-                System.out.println("list        - Prints current Polynomial");
+//                System.out.println("list        - Prints current Polynomial");
                 System.out.println("switch      - Switches current selected polynomial");
                 System.out.println("compute     - Display sum of polynomials");
                 System.out.println("add-term    - Adds term to current polynomial");
@@ -137,7 +139,16 @@ public class Driver {
                 System.out.println("exit        - Exits the Program");
             }
 
-            System.out.print(promptStr);
+            displayPolys(promptStr, polynomials, selectedPoly);
         }
+    }
+
+    public static void displayPolys(String promptStr, Polynomial[] polynomials, int selectedPoly) {
+        String selected1 = (selectedPoly == 0) ? " (selected)" : "";
+        String selected2 = (selectedPoly == 1) ? " (selected)" : "";
+
+        System.out.println("Polynomial 1: " + polynomials[0] + selected1);
+        System.out.println("Polynomial 2: " + polynomials[1] + selected2);
+        System.out.print(promptStr);
     }
 }
