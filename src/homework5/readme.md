@@ -50,3 +50,5 @@ Methods inherited from [interface](https://docs.oracle.com/javase/7/docs/api/jav
 >Pro-Tips:
 >- Read the tests thoroughly, note the situations they are testing, and devise a strategy on how to solve the palindrome checker.  Then create the sequence diagram, ensuring your logic is sound.  Finally, implement in code.
 >- Make sure to do the book reading, there's lots of code in there to help you along!
+
+[Return to Class Repo](https://github.com/andrewjknapp/CS113_Data_Structures)

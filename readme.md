@@ -15,3 +15,4 @@ ___
 1) DS-Clue (Homework 2)- [Homework 2](https://github.com/andrewjknapp/CS113_Data_Structures/tree/main/src/homework2)
 2) Polynomial ArrayList (Homework 3)- [Homework 3](https://github.com/andrewjknapp/CS113_Data_Structures/tree/main/src/homework3)
 3) Double Linked List (Homework 4)- [Homework 4](https://github.com/andrewjknapp/CS113_Data_Structures/tree/main/src/homework4)
+4) Stack Queues (Homework 5)- [Homework 5](https://github.com/andrewjknapp/CS113_Data_Structures/tree/main/src/homework5)
