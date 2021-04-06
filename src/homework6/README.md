@@ -38,6 +38,8 @@ method will write each combination produced to separate lines. This file
 will be read by the tester class to verify that your recursive solution 
 avoids duplicate values.
 
+---
+
 **_NOTE:_** _Your program should dispense the highest coin first (quarters, 
 then dimes, then nickels, then pennies)._ The format for printing each 
 combination is otherwise up to you- as long as the output is consistent. 
