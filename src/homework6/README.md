@@ -31,14 +31,14 @@ Another reason that a Set was chosen was to allow for great time efficiency.
 TreeSet uses a binary tree as its base so it shares its time complexity, being 
 around Olog(n)
 
+---
+
 Next, you will implement the method `printCombinationsToFile(int)`, which 
 should contain a call to the recursive solution that you created. Creating 
 a text file in the program's directory named `"CoinCombinations.txt"`, this 
 method will write each combination produced to separate lines. This file 
 will be read by the tester class to verify that your recursive solution 
 avoids duplicate values.
-
----
 
 **_NOTE:_** _Your program should dispense the highest coin first (quarters, 
 then dimes, then nickels, then pennies)._ The format for printing each 
