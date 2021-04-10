@@ -38,6 +38,7 @@ public class Driver {
             /* EXIT ********************************************/
             if (input.equals("exit")) {
                 promptAgain = false;
+                return;
             }
             /* SWITCH ******************************************/
             else if (input.equals("switch")) {

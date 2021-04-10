@@ -1,9 +1,6 @@
 package homework5;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.NoSuchElementException;
-import java.util.Queue;
 
 public class CircularArrayQueue<E>{
 

@@ -3,6 +3,7 @@ package homework6;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.lang.reflect.Array;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -23,7 +24,7 @@ public class ChangeCalculator {
     private static final int[] cValues = { 25, 10, 5, 1 };
     private static final String FILE_NAME = "src/homework6/test/CoinCombinations.txt";
     private static TreeSet<String> combinations = new TreeSet<>(new ChangeValueComparator());
-
+//    Array.getLength()
     /**
      * Wrapper method for determining all possible unique combinations of quarters, dimes, nickels, and pennies that
      * equal the given monetary value in cents.

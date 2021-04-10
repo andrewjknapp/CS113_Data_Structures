@@ -136,7 +136,7 @@ public class DoubleLinkedList<E> extends AbstractSequentialList<E>  {  // Data f
         } else {
             throw new IllegalStateException();
         }
-    }  // not implemented
+    }
 
     public void remove() throws IllegalStateException {
 
@@ -173,7 +173,7 @@ public class DoubleLinkedList<E> extends AbstractSequentialList<E>  {  // Data f
         } else {
             throw new IllegalStateException();
         }
-    }      // not implemented
+    }
 
     public E next() throws NoSuchElementException
     {
@@ -225,7 +225,6 @@ public class DoubleLinkedList<E> extends AbstractSequentialList<E>  {  // Data f
         size++;
         index++;
         lastItemReturned = null;
-    // Fill Here
     }
   }// end of inner class ListIter
 }// end of class DoubleLinkedList
