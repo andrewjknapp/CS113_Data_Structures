@@ -75,25 +75,24 @@ Your trees should enforce the Java rules for operator evaluation
 associativity.) Note: they should also preserve the order seen in the 
 expressions.
   - `x / y + a - b * c`
-
-  **[//Insert image here//]**
+  ![one](./answers/one.png)
+ 
   - `(x * a) - y / b * (c + d)`
+  ![two](./answers/two.png)
   
-  **[//Insert image here//]**
   
   - `(x + (a * (b - c)))/ d`
-  
-  **[//Insert image here//]**
+  ![three](./answers/three.png)
   
 2. Using the Huffman tree in the figure below:
 
 ![Image of huffman code tree](doc/problemImages/huffman.png)
 
   - Write the binary string for the message "scissors cuts paper":
-    - Binary String = `insert here`
+    - Binary String = `00110000001100011001110010010001111100000000011101001111110000110101000010100010`
   - Decode the following binary string using the tree above:
   `1100010001010001001011101100011111110001101010111101101001`
-    - Decoded String = `insert here`
+    - Decoded String = `where is waldo`
 
 3. For each of the two trees shown below, answer these questions:
 - What is its height?
@@ -103,37 +102,57 @@ expressions.
 
 ![Image of tree for problem 3A](doc/problemImages/problem3A.png)
 
-`insert answers here`
+- Height: 2
+- Full Tree: no
+- Complete Tree: yes
+- Binary Search Tree: no
+![four](./answers/four.png)
+
 
 ![Image of tree for problem 3B](doc/problemImages/problem3B.png)
 
-`insert answers here`
+- Height: 2
+- Full Tree: no 
+- Complete Tree: yes
+- Binary Search Tree: yes
 
-4. For the binary trees shown below, indicat whether each tree is full, 
+4. For the binary trees shown below, indicate whether each tree is full, 
 perfect, complete, or none of the above (note that a tree could be more 
 than one of these!)
 
 ![Image of tree for problem 4A](doc/problemImages/problem4A.png)
 
-`insert answers here`
+- Full: No
+- Perfect: No 
+- Complete: Yes
+- None of the Above: 
 
 ![Image of tree for problem 4B](doc/problemImages/problem4B.png)
 
-`insert answers here`
+- Full: Yes
+- Perfect: No
+- Complete: Yes 
+- None of the Above: 
 
 ![Image of tree for problem 4C](doc/problemImages/problem4C.png)
 
-`insert answers here`
+- Full: Yes
+- Perfect: No
+- Complete: Yes
+- None of the Above: 
 
 ![Image of tree for problem 4A](doc/problemImages/huffman.png)
 
-`insert answers here`
+- Full: Yes
+- Perfect: No
+- Complete: No
+- None of the Above: 
 
 5. Represent the general tree below as a binary tree
 
 ![Image of general tree for problem 5](doc/problemImages/problem5-general.png)
 
-**[//Insert image here//]**
+![five](./answers/five.png)
 
 
 ----------
