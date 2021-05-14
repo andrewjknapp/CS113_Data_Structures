@@ -16,4 +16,5 @@ ___
 2) Polynomial ArrayList (Homework 3)- [Homework 3](https://github.com/andrewjknapp/CS113_Data_Structures/tree/main/src/homework3)
 3) Double Linked List (Homework 4)- [Homework 4](https://github.com/andrewjknapp/CS113_Data_Structures/tree/main/src/homework4)
 4) Stack Queues (Homework 5)- [Homework 5](https://github.com/andrewjknapp/CS113_Data_Structures/tree/main/src/homework5)
-5) Change Calculator(Homework 6)- [Homework 6](https://github.com/andrewjknapp/CS113_Data_Structures/tree/main/src/homework6)
+5) Change Calculator (Homework 6)- [Homework 6](https://github.com/andrewjknapp/CS113_Data_Structures/tree/main/src/homework6)
+6) Morse Code Tree (Homework 7)- [Homework 7](https://github.com/andrewjknapp/CS113_Data_Structures/tree/main/src/homework7)

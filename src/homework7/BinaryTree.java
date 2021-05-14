@@ -4,127 +4,108 @@ import java.util.Scanner;
 
 public class BinaryTree<E> {
 
-    private E mData;
-    private BinaryTree<E> leftSubtree;
-    private BinaryTree<E> rightSubtree;
-
-    public BinaryTree(E data, BinaryTree<E> left, BinaryTree<E> right) {
-        mData = data;
-        leftSubtree = left;
-        rightSubtree = right;
-    }
+    protected Node<E> root;
 
     public BinaryTree() {
-        this(null, null, null);
+        root = null;
     }
 
-    public BinaryTree<E> getLeftSubtree() {
-        return leftSubtree;
+    protected BinaryTree(Node<E> newRoot) {
+        root = newRoot;
     }
 
-    public BinaryTree<E> getRightSubtree() {
-        return rightSubtree;
+    public BinaryTree(E data, BinaryTree<E> leftTree, BinaryTree<E> rightTree) {
+        root = new Node<>(data);
+        if (leftTree != null) {
+            root.left = leftTree.root;
+        } else {
+            root.left = null;
+        }
+        if (rightTree != null) {
+            root.right = rightTree.root;
+        } else {
+            root.right = null;
+        }
     }
 
     public E getData() {
-        return mData;
+        return root.data;
+    }
+
+    public BinaryTree<E> getLeftSubtree() {
+        if (root != null && root.left != null) {
+            return new BinaryTree<>(root.left);
+        } else {
+            return null;
+        }
+    }
+
+    public BinaryTree<E> getRightSubtree() {
+        if (root != null && root.right != null) {
+            return new BinaryTree<>(root.right);
+        } else {
+            return null;
+        }
     }
 
     public boolean isLeaf() {
-        if (mData == null) {
-            throw new NullPointerException();
-        }
-        return rightSubtree == null && leftSubtree == null;
+        return (root.left == null && root.right == null);
     }
 
-//    public void insertNodeIntoTree(String lineForm) {
-//        String charToStore;
-//        try {
-//            charToStore = decodeCharacter(lineForm);
-//            // If
-//            if (mData == null) {
-//                mData = charToStore;
-//            }
-//            System.out.println(charToStore);
-//        } catch (IllegalArgumentException e ) {
-//            System.err.println("Cannot insert: " + lineForm + " | " + e);
-//            return;
-//        }
-//
-//
-//
-//    }
-
-    public String decodeCharacter(String s) throws IllegalArgumentException {
-        String cleanedStr = s.replaceAll("\\s", "");
-        if (cleanedStr.length() != 1 && !cleanedStr.equals("null")) {
-            throw new IllegalArgumentException();
-        }
-        return cleanedStr;
-    }
-
-    public String translateFromMorseCode(String morseCode) {
-        return "";
-    }
-
-    @Override
     public String toString() {
-        String treeStr = mData + "\n";
-        return treeStr;
+        StringBuilder sb = new StringBuilder();
+        if (root == null) {
+            return "";
+        }
+        toString(root, 1, sb);
+        return sb.toString();
     }
 
-    public static BinaryTree<String> readBinaryTree(Scanner scanner) {
-        BinaryTree<String> tree = new BinaryTree<>();
-
-        while (scanner.hasNext()) {
-            //tree.insertNodeIntoTree(scanner.nextLine());
+    private void toString(Node<E> node, int depth, StringBuilder sb) {
+        for (int i = 1; i < depth; i++) {
+            sb.append(" ");
         }
-
-        return tree;
+        if (node == null) {
+            sb.append("null\n");
+        } else {
+            sb.append(node.toString());
+            sb.append("\n");
+            toString(node.left, depth + 1, sb);
+            toString(node.right, depth + 1, sb);
+        }
     }
 
-    class Node<E> {
-        private E mData;
-        private Node mRight;
-        private Node mLeft;
-
-        public Node(E data) {
-            mData = data;
-            mRight = null;
-            mLeft = null;
+    public static BinaryTree<String> readBinaryTree(Scanner scan) {
+        String data = scan.nextLine().trim();
+        if (data.equals("null")) {
+            return null;
+        } else {
+            BinaryTree<String> leftTree = readBinaryTree(scan);
+            BinaryTree<String> rightTree = readBinaryTree(scan);
+            return new BinaryTree<>(data, leftTree, rightTree);
         }
+    }
+
+    protected static class Node<E> {
+        protected E data;
+        protected Node<E> left;
+        protected Node<E> right;
 
         public Node() {
             this(null);
         }
 
-        public Node<E> getLeft() {
-            return mLeft;
-        }
-
-        public Node<E> getRight() {
-            return mRight;
-        }
-
-        public E getData() {
-            return mData;
-        }
-
-        public void setData(E data) {
-            mData = data;
-        }
-
-        public void setRight(Node right) {
-            mRight = right;
-        }
-
-        public void setLeft(Node left) {
-            mLeft = left;
+        public Node(E newData) {
+            data = newData;
+            left = null;
+            right = null;
         }
 
         public String toString() {
-            return mData + " \n";
+            if (data == null) {
+                return "";
+            }
+            return data.toString();
         }
-
     }
 }
