@@ -1,7 +1,7 @@
 # MorseCodeTree
 ## Morse Code translator + extending Binary Tree
 
-[Morse Code Translator CLI](./morse_code_translator.png)
+![Morse Code Translator CLI](./morse_code_translator.png)
 
 **International Morse Code, A-Z**
 
