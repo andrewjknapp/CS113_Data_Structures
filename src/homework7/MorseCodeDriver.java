@@ -16,10 +16,10 @@ public class MorseCodeDriver {
 
         String input;
 
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("Welcome to the Morse Code Translator");
         System.out.println("Type help for how to use");
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
         mainLoop: while (true) {
             System.out.print(promptStr);
