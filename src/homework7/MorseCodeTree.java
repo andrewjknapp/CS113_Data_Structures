@@ -2,6 +2,7 @@ package homework7;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -20,7 +21,6 @@ public class MorseCodeTree extends BinaryTree<Character> {
        readMorseCodeTree();
     }
 
-    // TODO:
     // Build this class, which includes the parent BinaryTree implementation in addition to
     // the `translateFromMorseCode` and `readMorseCodeTree` methods. Documentation has been suggested for the former,
     // where said exceptional cases are to be handled according to the corresponding unit tests.
@@ -52,8 +52,10 @@ public class MorseCodeTree extends BinaryTree<Character> {
                     }
                 }
 
-                currentNode.data = data[0];
+                currentNode.data = data[0].charAt(0);
+
             }
+            scan.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -94,6 +96,39 @@ public class MorseCodeTree extends BinaryTree<Character> {
         }
 
         return sb.toString();
+    }
+
+    /**
+     * Traverse through the Morse Code Tree and populate a HashMap to contain
+     * all the English - Morse Code pairings
+     *
+     * @return hm - A HashMap containing all the English - Morse Code pairings
+     */
+    public HashMap<Character, String> getAllMorseCodeMappings() {
+        HashMap<Character, String> hm = new HashMap<>();
+
+        getCodeMapping(hm, root.left, "*");
+        getCodeMapping(hm, root.right, "-");
+
+        return hm;
+    }
+
+    /**
+     * Recursive helper function for getAllMorseCodeMappings
+     *
+     * @param hm          - HashMap containing all the English - Morse Code pairings
+     * @param currentNode - Current position in the Morse Code Tree
+     * @param currentPath - Morse code value using '*' and '-'
+     */
+    private void getCodeMapping(HashMap<Character, String> hm, Node currentNode, String currentPath) {
+        hm.put((Character) currentNode.data, currentPath);
+
+        if (currentNode.left != null) {
+            getCodeMapping(hm, currentNode.left, currentPath + "*");
+        }
+        if (currentNode.right != null) {
+            getCodeMapping(hm, currentNode.right, currentPath + "-");
+        }
     }
 
 } // End of class MorseCodeTree

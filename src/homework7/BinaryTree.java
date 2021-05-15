@@ -28,10 +28,17 @@ public class BinaryTree<E> {
         }
     }
 
+    /**
+     *
+     * @return E - The data stored at the root of the binary tree
+     */
     public E getData() {
         return root.data;
     }
 
+    /**
+     * @return BinaryTree<E> - Tree representing the left subtree starting at the root
+     */
     public BinaryTree<E> getLeftSubtree() {
         if (root != null && root.left != null) {
             return new BinaryTree<>(root.left);
@@ -40,6 +47,9 @@ public class BinaryTree<E> {
         }
     }
 
+    /**
+     * @return BinaryTree<E> - Tree representing the right subtree starting at the root
+     */
     public BinaryTree<E> getRightSubtree() {
         if (root != null && root.right != null) {
             return new BinaryTree<>(root.right);
@@ -48,10 +58,16 @@ public class BinaryTree<E> {
         }
     }
 
+    /**
+     * @return boolean value representing whether or not the current node is a leaf node
+     */
     public boolean isLeaf() {
         return (root.left == null && root.right == null);
     }
 
+    /**
+     * @return - String value representing the Binary Tree
+     */
     public String toString() {
         StringBuilder sb = new StringBuilder();
         if (root == null) {
@@ -61,6 +77,14 @@ public class BinaryTree<E> {
         return sb.toString();
     }
 
+    /**
+     * Recursive helper method for toString. Traverses binary tree with
+     * a pre-order traversal
+     *
+     * @param node  - Current node traversal is on
+     * @param depth - Which level the traversal is at (Used for spacing the output)
+     * @param sb    - StringBuilder for appending each successive node
+     */
     private void toString(Node<E> node, int depth, StringBuilder sb) {
         for (int i = 1; i < depth; i++) {
             sb.append(" ");
@@ -75,6 +99,12 @@ public class BinaryTree<E> {
         }
     }
 
+    /**
+     * Recursive method for parsing a binary tree from its String representation
+     *
+     * @param scan - Scanner object which points to a file containing data for binary tree
+     * @return     - Binary tree read from Scanner
+     */
     public static BinaryTree<String> readBinaryTree(Scanner scan) {
         String data = scan.nextLine().trim();
         if (data.equals("null")) {
