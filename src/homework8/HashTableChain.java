@@ -68,9 +68,6 @@ public class HashTableChain<K, V> implements Map<K, V>  {
         public String toString() {
             return  key + "=" + value  ;
         }
-
-
-
     }
 
     ////////////// end Entry Class /////////////////////////////////
@@ -85,7 +82,7 @@ public class HashTableChain<K, V> implements Map<K, V>  {
 
         @Override
         public Iterator<Map.Entry<K, V>> iterator() {
-            return new SetIterator();
+            return new SetIterator("entry");
         }
 
         @Override
@@ -107,22 +104,49 @@ public class HashTableChain<K, V> implements Map<K, V>  {
         private int index = 0 ;
         private Entry<K,V> lastItemReturned = null;
         private Iterator<Entry<K, V>> iter = null;
+        private String type;
+
+        public SetIterator(String type) {
+            this.type = type;
+        }
 
         @Override
         public boolean hasNext() {
-        	// TODO
+            // TODO Check hasNext
+            for (int i = index; i < table.length; i++) {
+                if (table[index] == null) {
+                    continue;
+                }
+
+                return true;
+            }
             return false;
         }
 
         @Override
         public Map.Entry<K, V> next() {
-        	// TODO
-            return null;
+            // TODO Check next
+            if (iter == null) {
+                while (index < table.length && table[index] == null) {
+                    index++;
+                }
+                iter = table[index].iterator();
+            }
+
+            Map.Entry<K, V> entry = iter.next();
+
+            if (!iter.hasNext()) {
+                iter = null;
+            }
+
+            lastItemReturned = (Entry) entry;
+            return entry;
         }
 
         @Override
         public void remove() {
-        	// TODO
+        	// TODO remove
+            HashTableChain.this.remove(lastItemReturned.key, lastItemReturned.value);
         }
     }
 
@@ -150,15 +174,24 @@ public class HashTableChain<K, V> implements Map<K, V>  {
     // returns boolean if table has the searched for key
     @Override
     public boolean containsKey(Object key) {
-    	// TODO
-        return true;
+        return this.get(key) != null;
     }
 
     // returns boolean if table has the searched for value
     @Override
     public boolean containsValue(Object value) {
-    	// TODO
-    	return true;
+    	for (int i = 0; i < table.length; i++) {
+    	    if (table[i] == null) {
+    	        continue;
+            }
+
+    	    for (Entry<K, V> entry : table[i]) {
+    	        if (entry.value == value) {
+    	            return true;
+                }
+            }
+        }
+    	return false;
     }
 
     // returns Value if table has the searched for key
@@ -215,10 +248,25 @@ public class HashTableChain<K, V> implements Map<K, V>  {
      * Resizes the table to be 2X +1 bigger than previous
      */
     private void rehash() {
-    	// TODO
+        System.out.println("Hello");
+    	// TODO rehash
         // Allocate a new hash table with twice the capacity
         // Reinsert each old table entry that has not been deleted
         // Reference new hash table instead of the original
+        LinkedList<Entry<K,V>>[] newTable = new LinkedList[table.length * 2];
+        LinkedList<Entry<K,V>>[] oldTable = table;
+        table = newTable;
+        int index;
+
+        for (int i = 0; i < this.table.length; i++) {
+            if (this.table[i] == null) {
+                continue;
+            }
+            for (Entry<K, V> entry : table[i]) {
+                index = entry.key.hashCode() % newTable.length;
+            }
+
+        }
     }
 
     @Override
@@ -275,14 +323,19 @@ public class HashTableChain<K, V> implements Map<K, V>  {
     // empties the table
     @Override
     public void clear() {
-    	// TODO
+        table = new LinkedList[CAPACITY] ;
+        numKeys = 0;
     }
 
     // returns a view of the keys in set view
     @Override
     public Set<K> keySet() {
-    	// TODO
-        return null;
+        Set<K> keys = new HashSet<>();
+        for (Map.Entry<K, V> entry : entrySet()) {
+            keys.add(entry.getKey());
+        }
+     	// TODO keySet
+        return keys;
     }
 
     // throws UnsupportedOperationException
@@ -295,20 +348,50 @@ public class HashTableChain<K, V> implements Map<K, V>  {
     // returns a set view of the hash table
     @Override
     public Set<Map.Entry<K, V>> entrySet() {
-    	// TODO
 
-        return null;
+        return new EntrySet();
     }
 
     @Override
     public boolean equals(Object o) {
-    	// TODO
+        if (!(o instanceof Map)) {
+            return false;
+        }
+        Map other = (Map) o;
+        if (other == this) {
+            return true;
+        }
+        if (this.size() != other.size()) {
+            return false;
+        }
+
+        for (int i = 0; i < this.table.length; i++) {
+            if (this.table[i] == null) {
+                continue;
+            }
+            for (Entry<K, V> nextItem : table[i]) {
+                if (nextItem.value != other.get(nextItem.key)) {
+                    return false;
+                }
+            }
+
+        }
         return true;
     }
 
     @Override
     public int hashCode() {
-    	//TODO
-        return 0;
+        int h = 0;
+
+        for (int i = 0; i < this.table.length; i++) {
+            if (this.table[i] == null) {
+                continue;
+            }
+            for (Entry<K, V> nextItem : table[i]) {
+                h += nextItem.hashCode();
+            }
+
+        }
+        return h;
     }
 }

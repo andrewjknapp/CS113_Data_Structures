@@ -242,6 +242,13 @@ public class HashTableChainTest {
         assertEquals("Test size 5 failed - collisive key entries have been added.", 305, hashTable.size());
     }
 
+    @Test
+    public void testRehash() {
+        // Attempt to add 10 values whose keys already exist within this map
+        populateMapWithPut(3000);
+
+    }
+
     // endregion Map tests
     // region SetIterator tests
 
