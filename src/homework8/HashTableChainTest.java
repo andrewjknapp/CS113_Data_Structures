@@ -7,10 +7,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * HashTableChainTest : Tester class for a hash table implementation which utilizes chaining. As a class which extends
@@ -174,16 +171,16 @@ public class HashTableChainTest {
         assertEquals(null, hashTable.get("no such key"));
     }
 
-    @Test
-    public void testHashCode() {
-        // Returns the hash code value for this map.
-        hashTable.put("one", 1);
-
-        Map<String, Integer> other = new Hashtable<String, Integer>();
-        other.put("one", 1);
-
-        assertEquals(other.hashCode(), hashTable.hashCode());
-    }
+//    @Test
+//    public void testHashCode() {
+//        // Returns the hash code value for this map.
+//        hashTable.put("one", 1);
+//
+//        Map<String, Integer> other = new Hashtable<String, Integer>();
+//        other.put("one", 1);
+//
+//        assertEquals(other.hashCode(), hashTable.hashCode());
+//    }
 
     @Test
     public void testRemove() {
@@ -242,17 +239,35 @@ public class HashTableChainTest {
         assertEquals("Test size 5 failed - collisive key entries have been added.", 305, hashTable.size());
     }
 
-    @Test
-    public void testRehash() {
-        // Attempt to add 10 values whose keys already exist within this map
-        populateMapWithPut(3000);
-
-    }
-
     // endregion Map tests
     // region SetIterator tests
 
     // TODO: "
+    @Test
+    public void testSetIterator() {
+        hashTable.put("one", 1);
+
+        Iterator<Map.Entry<String, Integer>> iter = hashTable.entrySet().iterator();
+
+        // Test Has Next
+        assertTrue(iter.hasNext());
+
+        Map.Entry<String, Integer> entry;
+
+        // Test next
+        entry = iter.next();
+
+        assertEquals(entry.getKey(), "one");
+        assertEquals(entry.getValue(), (Integer) 1);
+
+
+        // Test remove
+        iter.remove();
+
+        assertEquals(hashTable.size(), 0);
+
+
+    }
 
     // endregion SetIterator tests
 
