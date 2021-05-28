@@ -70,9 +70,7 @@ public class BinaryTree<E> {
      */
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (root == null) {
-            return "";
-        }
+
         toString(root, 1, sb);
         return sb.toString();
     }

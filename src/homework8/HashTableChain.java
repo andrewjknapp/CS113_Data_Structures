@@ -133,7 +133,6 @@ public class HashTableChain<K, V> implements Map<K, V>  {
                     return iter.next();
                 } else {
                     iter = null;
-                    index++;
                 }
             }
 
@@ -190,18 +189,32 @@ public class HashTableChain<K, V> implements Map<K, V>  {
     // returns boolean if table has the searched for value
     @Override
     public boolean containsValue(Object value) {
-    	for (int i = 0; i < table.length; i++) {
-    	    if (table[i] == null) {
-    	        continue;
-            }
 
-    	    for (Entry<K, V> entry : table[i]) {
-    	        if (entry.value == value) {
-    	            return true;
-                }
+        Iterator<Map.Entry<K,V>> iter = entrySet().iterator();
+        while (iter.hasNext()) {
+            if (iter.next().getValue().equals(value)) {
+                return true;
             }
         }
-    	return false;
+        return false;
+
+//        for (Map.Entry<K, V> kvEntry : entrySet()) {
+//            if (kvEntry.getValue().equals(value))
+//                return true;
+//        }
+//        return false;
+//    	for (int i = 0; i < table.length; i++) {
+//    	    if (table[i] == null) {
+//    	        continue;
+//            }
+//
+//    	    for (Entry<K, V> entry : table[i]) {
+//    	        if (entry.value == value) {
+//    	            return true;
+//                }
+//            }
+//        }
+//    	return false;
     }
 
     // returns Value if table has the searched for key
